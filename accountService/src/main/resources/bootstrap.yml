@@ -1,0 +1,19 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: account-service
+  cloud:
+    config:
+      discovery:
+        enabled: false
+        service-id: configServer
+
+spring:
+  cloud:
+    config:
+      uri: localhost:9000
+      failFast: true
+      retry:
+        initialInterval: 3000
+        maxInterval: 5000

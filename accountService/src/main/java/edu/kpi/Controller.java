@@ -1,6 +1,8 @@
 package edu.kpi;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,9 +17,17 @@ public class Controller {
     @Autowired
     private AccountRep rep;
 
+    @Autowired
+    private Configuration configuration;
+
+   // @Value("${acc.note}")
+    private String note;
+
     @GetMapping("")
     public String main() {
         StringBuilder blr = new StringBuilder();
+        blr.append("<h4>").append(configuration.getMessage()).append("</h4>");
+        blr.append("<h6>").append(note).append("</h6>");
         blr.append("<a href='/api/accounts'>Find all!</a>");
         blr.append("<br/>");
         blr.append("<a href='/api/accounts/1'>By id: /api/accounts/{id}</a>");
