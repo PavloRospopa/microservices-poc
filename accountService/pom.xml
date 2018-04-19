@@ -5,11 +5,11 @@
 
     <groupId>edu.kpi</groupId>
     <artifactId>account_microservice</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>account_microservice</name>
-    <description>Spring Boot microservices</description>
+    <description>Account management service</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -69,7 +69,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-            <version>RELEASE</version>
         </dependency>
     </dependencies>
 
@@ -81,6 +80,18 @@
             </plugin>
         </plugins>
     </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <repositories>
         <repository>
