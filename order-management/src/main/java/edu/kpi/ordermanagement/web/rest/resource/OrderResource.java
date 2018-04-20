@@ -4,10 +4,7 @@ import edu.kpi.ordermanagement.domain.Order;
 import edu.kpi.ordermanagement.service.OrderManagementService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -34,7 +31,7 @@ public class OrderResource {
     }
 
     @PostMapping
-    public ResponseEntity<?> create(Order order) {
+    public ResponseEntity<?> create(@RequestBody Order order) {
         Order created = service.create(order);
 
         URI location = ServletUriComponentsBuilder

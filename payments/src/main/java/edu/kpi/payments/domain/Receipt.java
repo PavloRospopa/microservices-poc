@@ -1,0 +1,15 @@
+package edu.kpi.payments.domain;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
+@AllArgsConstructor
+public class Receipt {
+
+    private String id;
+    private String orderId;
+    private int totalPrice;
+}

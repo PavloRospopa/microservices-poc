@@ -14,6 +14,7 @@
         <module>accountService</module>
         <module>service-registry</module>
         <module>order-management</module>
+        <module>payments</module>
     </modules>
 
 </project>
