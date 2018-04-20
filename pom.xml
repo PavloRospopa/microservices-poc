@@ -15,6 +15,7 @@
         <module>service-registry</module>
         <module>order-management</module>
         <module>payments</module>
+        <module>configServer</module>
     </modules>
 
 </project>

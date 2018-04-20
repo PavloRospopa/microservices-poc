@@ -18,6 +18,7 @@ public class PaymentsController {
 
     private final PaymentService paymentService;
 
+    @GetMapping
     public List<Receipt> readAll() {
         return paymentService.readAll();
     }
