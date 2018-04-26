@@ -1,24 +1,24 @@
 package edu.kpi.client;
 
 import edu.kpi.dto.OrderDto;
-import org.hibernate.criterion.Order;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 @FeignClient("order-management")
 public interface OrderManagementServiceClient {
 
-    @RequestMapping(method = RequestMethod.GET,
-            path = "/api/orders",
-            params = "accountId")
-    List<OrderDto> readAccountOrders(@RequestParam Long accountId);
+    @RequestMapping(method = RequestMethod.GET, path = "/api/orders", params = "accountId")
+    List<OrderDto> fetchAccountOrders(@RequestParam Long accountId);
 
-    @GetMapping(path = "/api/orders/{orderId}")
-    OrderDto read(@PathVariable String orderId);
+    @RequestMapping(method = RequestMethod.GET, path = "/api/orders/{orderId}")
+    OrderDto read(@PathVariable("orderId") String orderId);
 
-    @PostMapping(path = "/api/orders")
-    OrderDto createOrder(OrderDto orderDto);
+    @RequestMapping(method = RequestMethod.POST, path = "/api/orders")
+    ResponseEntity<OrderDto> createOrder(OrderDto orderDto);
 }

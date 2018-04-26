@@ -8,7 +8,7 @@ public class HomeController {
 
     @GetMapping(path = "/", produces = "text/html")
     public String home() {
-        return "<a href='/api/payments'>Find all! /api/receipts</a>" +
+        return "<a href='/api/payments'>Find all! /api/payments</a>" +
                 "<br/>" +
                 "<a href='/api/payments/demo-receipt'>By id /api/payments/{id}</a>";
     }

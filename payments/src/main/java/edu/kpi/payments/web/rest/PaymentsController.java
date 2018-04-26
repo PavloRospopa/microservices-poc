@@ -12,7 +12,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
-@RestController("/api/payments")
+@RestController
+@RequestMapping("/api/payments")
 @RequiredArgsConstructor
 public class PaymentsController {
 
@@ -24,7 +25,7 @@ public class PaymentsController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> read(@PathVariable String id) {
+    public ResponseEntity<?> getReceipt(@PathVariable String id) {
         Optional<Receipt> receiptOptional = paymentService.read(id);
 
         return receiptOptional.map(ResponseEntity::ok)
@@ -32,7 +33,7 @@ public class PaymentsController {
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody Order order) {
+    public ResponseEntity<?> processOrder(@RequestBody Order order) {
         Receipt receipt = paymentService.checkout(order);
 
         URI location = ServletUriComponentsBuilder

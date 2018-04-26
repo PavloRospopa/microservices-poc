@@ -28,11 +28,15 @@ public class PaymentService {
                 .mapToInt(lineItem -> lineItem.getPrice() * lineItem.getQuantity())
                 .sum();
 
-        return Receipt.builder()
+        Receipt receipt = Receipt.builder()
                 .id(UUID.randomUUID().toString())
                 .orderId(order.getId())
                 .totalPrice(totalPrice)
                 .build();
+
+        receipts.add(receipt);
+
+        return receipt;
     }
 
     public Optional<Receipt> read(String id) {

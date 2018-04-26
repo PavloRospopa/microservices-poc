@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderManagementService {
@@ -33,6 +34,12 @@ public class OrderManagementService {
 
     public List<Order> readAll() {
         return new ArrayList<>(cache);
+    }
+
+    public List<Order> findBy(String accountId) {
+
+        return cache.stream().filter(order -> order.getAccountId().equals(accountId))
+                .collect(Collectors.toList());
     }
 
     public Order create(Order order) {

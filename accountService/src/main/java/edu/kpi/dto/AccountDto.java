@@ -1,5 +1,6 @@
-package edu.kpi;
+package edu.kpi.dto;
 
+import edu.kpi.persistence.entity.Account;
 import lombok.Data;
 
 @Data

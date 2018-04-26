@@ -1,4 +1,4 @@
-package edu.kpi;
+package edu.kpi.persistence.entity;
 
 import lombok.Data;
 
